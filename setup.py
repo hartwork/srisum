@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='srisum',
-    version='1.0.0',
+    version='1.0.1',
     license='MIT',
     description='Compute and display subresource integrity (SRI) checksums',
     long_description=open('README.md', encoding='utf-8').read(),
