@@ -19,15 +19,15 @@ def download_url_to_file(url):
 
 def obtain_hash_for_local_file(filename: str) -> str:
     h = hashlib.sha256()
-    with open(filename, 'br') as f:
+    with open(filename, "br") as f:
         h.update(f.read())
-    bytes_digest = b'sha256-' + base64.b64encode(h.digest())
-    return bytes_digest.decode('ascii')
+    bytes_digest = b"sha256-" + base64.b64encode(h.digest())
+    return bytes_digest.decode("ascii")
 
 
 def run(config):
     delete_file = False
-    if config.filename_or_url.startswith('https://'):
+    if config.filename_or_url.startswith("https://"):
         filename = download_url_to_file(config.filename_or_url)
         delete_file = True
     else:
@@ -42,12 +42,12 @@ def run(config):
 
 def main():
     parser = ArgumentParser()
-    parser.add_argument('filename_or_url',
-                        metavar='FILE|URL',
-                        help='File or https:// URL to compute checksum for')
+    parser.add_argument(
+        "filename_or_url", metavar="FILE|URL", help="File or https:// URL to compute checksum for"
+    )
     config = parser.parse_args()
     run(config)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
