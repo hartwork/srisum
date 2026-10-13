@@ -14,7 +14,7 @@ setup(
     author="Sebastian Pipping",
     author_email="sebastian@pipping.org",
     url="https://github.com/hartwork/srisum",
-    python_requires=">=3.10",
+    python_requires=">=3.11",
     setup_requires=[
         "setuptools>=38.6.0",  # for long_description_content_type
     ],
@@ -29,16 +29,15 @@ setup(
     },
     classifiers=[
         "Development Status :: 4 - Beta",
-        "License :: OSI Approved :: MIT License",
         "Intended Audience :: Developers",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
         "Programming Language :: Python :: 3.14",
+        "Programming Language :: Python :: 3.15",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Software Development",
         "Topic :: System :: Archiving :: Packaging",
