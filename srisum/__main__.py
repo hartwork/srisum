@@ -4,6 +4,7 @@
 import base64
 import hashlib
 import os
+import sys
 import tempfile
 from argparse import ArgumentParser
 
@@ -35,6 +36,9 @@ def run(config):
 
     try:
         print(obtain_hash_for_local_file(filename))
+    except OSError as e:
+        print(f"srisum: error: {filename}: {e.strerror or e}", file=sys.stderr)
+        sys.exit(1)
     finally:
         if delete_file:
             os.remove(filename)
