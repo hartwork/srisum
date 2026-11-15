@@ -33,6 +33,8 @@ def run(config):
         delete_file = True
     else:
         filename = config.filename_or_url
+        if not os.path.exists(filename):
+            raise FileNotFoundError(f"File {filename!r} not found.")
 
     try:
         print(obtain_hash_for_local_file(filename))
