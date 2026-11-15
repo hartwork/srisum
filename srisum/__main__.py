@@ -13,6 +13,7 @@ import requests
 
 def download_url_to_file(url):
     response = requests.get(url, allow_redirects=True)
+    response.raise_for_status()
     with tempfile.NamedTemporaryFile(delete=False) as f:
         f.write(response.content)
     return f.name
