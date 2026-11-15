@@ -4,6 +4,7 @@
 import base64
 import hashlib
 import os
+import sys
 import tempfile
 from argparse import ArgumentParser
 
@@ -41,12 +42,22 @@ def run(config):
 
 
 def main():
-    parser = ArgumentParser()
-    parser.add_argument(
-        "filename_or_url", metavar="FILE|URL", help="File or https:// URL to compute checksum for"
-    )
-    config = parser.parse_args()
-    run(config)
+    try:
+        parser = ArgumentParser()
+        parser.add_argument(
+            "filename_or_url",
+            metavar="FILE|URL",
+            help="File or https:// URL to compute checksum for",
+        )
+        config = parser.parse_args()
+        run(config)
+    except KeyboardInterrupt:
+        import signal
+
+        sys.exit(128 + signal.SIGINT)
+    except BaseException as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
